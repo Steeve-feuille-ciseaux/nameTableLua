@@ -18,14 +18,8 @@ joueurs = {
 	{"L.Hernendez",4,"DEF"},
 	{"L.Hernendez",4,"DEF"}-- ne pas toucher
 }	
-
-strTeam = 0
-teams = {
-	{"test",0,"X"}
-}
-
+	
 function cadreData(Theme,Mode,pX,pY,pW,pAx,tX,Txt,strTxt)
- -- Select le mode
  if Mode >= 4 then
  	Mode = 3
   x= 3
@@ -34,14 +28,12 @@ function cadreData(Theme,Mode,pX,pY,pW,pAx,tX,Txt,strTxt)
   x= 0
  end
  
- -- Definit les limites du tableau
  if y >= strTxt then
  	y = 5
  elseif y <= 1 then 
  	y = 2
  end
  
- -- Defiler les joueurs du tableau
  if Theme==Mode then 
 		if btnp(0) then
 		 Up=pY-10
@@ -67,26 +59,14 @@ end
 function TIC()
 
 	if btnp(2) then x=x-1 end
-	if btnp(3) then x=x+1 end	
-	
-	for i, valeur in ipairs(teams) do
-	  print(i, valeur)
-	end
-	
+	if btnp(3) then x=x+1 end
+
 	cls(0)
+	
+	map()
 	-- debug
 	print(x,10,10,12)
 	print(y,10,20,12)
-		
-	
-	--place joueur dans l'equipe
-	if keyp(48) then 
-  table.insert(teams, joueurs[y])
-	end
-	-- Afficher le contenu de l'équipe après l'ajout
-	for i, joueur in ipairs(teams) do
-		print(teams[i][2],10+(i*10),40,12)
-	end
 	
 	cadreData(1,x,20,5,40,35,35,joueurs[y][2],strJoueur)
 	cadreData(2,x,90,5,90,130,105,joueurs[y][1],strJoueur)

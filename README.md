@@ -7,3 +7,5 @@ afficher le joueur sélectionné via un cercle
 
 Correction à apporté 
 remplacer la taille du tableau statique en dynamique, la commande est '#'devant la variable contenant le tableau
+
+v0.04.1
